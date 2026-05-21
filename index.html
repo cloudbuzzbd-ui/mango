@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>আমের রাজ্য | সেরা অর্গানিক আম – সরাসরি বাগান থেকে</title>
+  <meta name="description" content="১০০% অর্গানিক ও রাসায়নিকমুক্ত আম। সরাসরি বাগান থেকে আপনার দরজায়।" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --green: #5aac1e;
+      --yellow: #fddd00;
+      --dark: #0a472e;
+      --mid: #3d8a0e;
+      --light-green: #ffffff;
+      --green2: #4a9018;
+      --text-dark: #0a472e;
+    }
+
+    * { font-family: 'Noto Sans Bengali', sans-serif; box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: #0a472e; overflow-x: hidden; }
+
+    /* ===== LOADER ===== */
+    #loader {
+      position: fixed; inset: 0; z-index: 9999;
+      background: var(--dark);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 16px;
+      transition: opacity .7s ease, visibility .7s ease;
+    }
+    #loader.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+    .loader-mango { font-size: 70px; animation: loaderBounce 1s ease-in-out infinite alternate; }
+    @keyframes loaderBounce { from { transform: translateY(0) scale(.95); } to { transform: translateY(-18px) scale(1.05); } }
+    .loader-bar { width: 220px; height: 5px; background: rgba(255,255,255,.15); border-radius: 99px; overflow: hidden; }
+    .loader-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--yellow), #f5c800); border-radius: 99px; animation: fill 1.9s ease forwards; }
+    @keyframes fill { to { width: 100%; } }
+    .loader-text { color: var(--yellow); font-weight: 900; font-size: 1.4rem; letter-spacing: .05em; }
+
+    /* ===== OFFER STRIP ===== */
+    .offer-strip {
+      background: linear-gradient(90deg, var(--dark) 0%, var(--green) 50%, var(--dark) 100%);
+      color: var(--yellow);
+      padding: 10px 0;
+      font-size: .82rem; font-weight: 700;
+      overflow: hidden; position: relative;
+      margin-top: 68px;
+    }
+    .marquee-inner {
+      display: flex; gap: 60px; white-space: nowrap;
+      animation: marquee 22s linear infinite;
+    }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ===== NAVBAR ===== */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(10,71,46,.0);
+      transition: background .4s, box-shadow .4s;
+    }
+    #navbar.scrolled {
+      background: rgba(10,71,46,.97);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 4px 30px rgba(0,0,0,.3);
+    }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; height: 68px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; }
+    .nav-logo-icon { font-size: 30px; filter: drop-shadow(0 2px 6px rgba(0,0,0,.2)); }
+    .nav-logo-text { font-size: 1.15rem; font-weight: 900; line-height: 1.1; }
+    .nav-logo-sub { font-size: .6rem; opacity: .7; letter-spacing: .08em; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { color: rgba(255,255,255,.9); text-decoration: none; font-size: .9rem; font-weight: 600; transition: color .2s; }
+    .nav-links a:hover { color: var(--yellow); }
+    .btn-nav-order {
+      background: linear-gradient(135deg, var(--yellow), #f5c800);
+      color: var(--dark); font-weight: 800; font-size: .85rem;
+      padding: 9px 22px; border-radius: 50px; border: none; cursor: pointer;
+      box-shadow: 0 4px 18px rgba(253,221,0,.4);
+      transition: transform .2s, box-shadow .2s;
+      font-family: 'Noto Sans Bengali', sans-serif;
+    }
+    .btn-nav-order:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(253,221,0,.55); }
+    #menuBtn { display: none; background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      #menuBtn { display: block; }
+    }
+    #mobileMenu {
+      display: none;
+      position: fixed; top: 68px; left: 0; right: 0; z-index: 999;
+      background: rgba(10,71,46,.98);
+      backdrop-filter: blur(20px);
+      padding: 20px; border-top: 1px solid rgba(253,221,0,.2);
+    }
+    #mobileMenu.open { display: block; animation: slideDown .3s ease; }
+    @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+    #mobileMenu a, #mobileMenu button.mob-link {
+      display: block; color: rgba(255,255,255,.9); text-decoration: none;
+      font-weight: 600; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.08);
+      background: none; border-left: none; border-right: none; border-top: none;
+      text-align: left; font-family: 'Noto Sans Bengali', sans-serif; font-size: .95rem; cursor: pointer;
+    }
+    #mobileMenu a:last-child { border-bottom: none; }
+    .mob-order-btn {
+      display: block; width: 100%; margin-top: 14px;
+      background: linear-gradient(135deg, var(--yellow), #f5c800);
+      color: var(--dark); font-weight: 800; padding: 13px;
+      border-radius: 12px; border: none; cursor: pointer;
+      font-family: 'Noto Sans Bengali', sans-serif; font-size: 1rem;
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn-primary {
+      background: linear-gradient(135deg, var(--yellow), #f5c800);
+      color: var(--dark); font-weight: 800;
+      padding: 14px 32px; border-radius: 50px;
+      border: none; cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 6px 25px rgba(253,221,0,.45);
+      font-size: 1rem; display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Noto Sans Bengali', sans-serif;
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(253,221,0,.6); }
+    .btn-whatsapp {
+      background: linear-gradient(135deg, #25d366, #1aaf55);
+      color: #fff; font-weight: 700;
+      padding: 14px 32px; border-radius: 50px;
+      border: none; cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 6px 25px rgba(37,211,102,.4);
+      font-size: 1rem; display: inline-flex; align-items: center; gap: 8px;
+      text-decoration: none; font-family: 'Noto Sans Bengali', sans-serif;
+    }
+    .btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(37,211,102,.55); }
+
+    /* ===== HERO ===== */
+    .hero-bg {
+      background: linear-gradient(145deg, #062e1c 0%, #0a472e 35%, #1a6e40 65%, #2e8b4a 85%, #3d8a0e 100%);
+      min-height: 100vh;
+      position: relative; overflow: hidden;
+      display: flex; align-items: center;
+    }
+    .hero-bg::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 65% 45%, rgba(253,221,0,.12) 0%, transparent 55%),
+        radial-gradient(ellipse at 15% 75%, rgba(90,172,30,.2) 0%, transparent 45%);
+    }
+    .hero-particle {
+      position: absolute; pointer-events: none; user-select: none;
+      opacity: .12; font-size: clamp(30px, 5vw, 70px);
+    }
+    .p1 { top: 8%; left: 4%; animation: floatP 6s ease-in-out infinite; }
+    .p2 { top: 65%; left: 3%; animation: floatP 7s ease-in-out infinite 1s; }
+    .p3 { top: 15%; right: 6%; animation: floatP 5.5s ease-in-out infinite .5s; }
+    .p4 { top: 75%; right: 4%; animation: floatP 6.5s ease-in-out infinite 1.5s; }
+    .p5 { top: 40%; right: 2%; animation: floatP 7.5s ease-in-out infinite 2s; }
+    .p6 { top: 50%; left: 8%; animation: floatP 5s ease-in-out infinite .8s; }
+    @keyframes floatP {
+      0%,100% { transform: translateY(0) rotate(-10deg); }
+      50% { transform: translateY(-24px) rotate(10deg); }
+    }
+
+    .hero-content { max-width: 1200px; margin: 0 auto; padding: 100px 20px 60px; width: 100%; position: relative; z-index: 2; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(253,221,0,.15); border: 1px solid rgba(253,221,0,.35);
+      color: var(--yellow); font-size: .82rem; font-weight: 700;
+      padding: 7px 18px; border-radius: 50px; margin-bottom: 22px;
+      animation: badgePop .7s cubic-bezier(.34,1.56,.64,1) .2s both;
+    }
+    @keyframes badgePop { from { opacity:0; transform: scale(.8) translateY(10px); } to { opacity:1; transform: scale(1) translateY(0); } }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 5.5vw, 4.2rem);
+      font-weight: 900; line-height: 1.18; color: #fff;
+      text-shadow: 0 4px 30px rgba(0,0,0,.25);
+      animation: heroFadeUp .8s ease .3s both;
+    }
+    .hero-title .yellow { color: var(--yellow); }
+    @keyframes heroFadeUp { from { opacity:0; transform: translateY(30px); } to { opacity:1; transform: translateY(0); } }
+
+    .hero-desc {
+      color: rgba(251,213,7,1.000); font-size: 1rem; line-height: 1.75;
+      margin: 20px 0 30px;
+      animation: heroFadeUp .8s ease .45s both;
+    }
+
+    .countdown-wrap { margin-bottom: 28px; animation: heroFadeUp .8s ease .55s both; }
+    .countdown-label-text { color: rgba(255,255,255,.65); font-size: .8rem; font-weight: 600; margin-bottom: 10px; }
+    .countdown-row { display: flex; align-items: center; gap: 10px; }
+    .cd-box {
+      background: rgba(255,255,255,.12);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 14px; padding: 12px 16px; text-align: center; min-width: 68px;
+    }
+    .cd-num { font-size: 1.9rem; font-weight: 900; color: var(--yellow); line-height: 1; }
+    .cd-unit { font-size: .65rem; color: rgba(255,255,255,.6); margin-top: 3px; }
+    .cd-sep { font-size: 1.6rem; font-weight: 900; color: var(--yellow); }
+
+    .hero-btns { display: flex; flex-wrap: wrap; gap: 12px; animation: heroFadeUp .8s ease .65s both; }
+    .hero-trust { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 22px; animation: heroFadeUp .8s ease .75s both; }
+    .trust-item { color: rgb(255, 255, 255); font-size: .8rem; display: flex; align-items: center; gap: 6px; }
+    .trust-item i { color: var(--yellow); }
+
+    .hero-right { text-align: center; position: relative; animation: heroFadeRight .9s ease .4s both; }
+    @keyframes heroFadeRight { from { opacity:0; transform: translateX(40px); } to { opacity:1; transform: translateX(0); } }
+    .hero-mango-img {
+      width: 100%; max-width: 480px;
+      border-radius: 30px;
+      box-shadow: 0 30px 80px rgba(0,0,0,.4);
+      animation: heroFloat 4.5s ease-in-out infinite;
+      object-fit: cover; height: 380px;
+      border: 3px solid rgba(253,221,0,.3);
+    }
+    @keyframes heroFloat {
+      0%,100% { transform: translateY(0) rotate(.5deg); }
+      50% { transform: translateY(-16px) rotate(-.5deg); }
+    }
+    .hero-stats { display: flex; justify-content: center; gap: 16px; margin-top: 20px; flex-wrap: wrap; }
+    .stat-pill {
+      background: rgba(255,255,255,.13); border: 1px solid rgba(255,255,255,.2);
+      backdrop-filter: blur(10px);
+      border-radius: 16px; padding: 10px 18px; text-align: center;
+    }
+    .stat-num { font-size: 1.4rem; font-weight: 900; color: var(--yellow); }
+    .stat-lbl { font-size: .68rem; color: rgb(255, 255, 255); }
+
+    /* ===== SECTIONS ===== */
+    .section { padding: 90px 20px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-head { text-align: center; margin-bottom: 60px; }
+    .section-badge {
+      background: var(--light-green); color: var(--green);
+      font-weight: 700; font-size: .78rem; letter-spacing: .05em;
+      padding: 5px 18px; border-radius: 99px; display: inline-block; margin-bottom: 12px;
+    }
+    .section-title { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 900; color: var(--dark); }
+    .section-desc { color: #5a7a5a; margin-top: 10px; font-size: .95rem; max-width: 520px; margin-left: auto; margin-right: auto; }
+
+    /* ===== REVEAL ===== */
+    .reveal { opacity: 0; transform: translateY(50px); transition: opacity .8s ease, transform .8s cubic-bezier(.16,1,.3,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-50px); transition: opacity .8s ease, transform .8s cubic-bezier(.16,1,.3,1); }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right { opacity: 0; transform: translateX(50px); transition: opacity .8s ease, transform .8s cubic-bezier(.16,1,.3,1); }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+    .reveal-scale { opacity: 0; transform: scale(.88); transition: opacity .7s ease, transform .7s cubic-bezier(.34,1.56,.64,1); }
+    .reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+    /* ===== WHY US ===== */
+    .why-section { background: linear-gradient(180deg, #1a5535 0%, #0a472e 100%); }
+    .why-section .section-badge { background: rgba(253,221,0,.15); color: var(--yellow); }
+    .why-section .section-title { color: #fff; }
+    .why-section .section-desc { color: rgb(255, 255, 255); }
+    .feature-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    @media (max-width: 900px) { .feature-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .feature-grid { grid-template-columns: 1fr 1fr; } }
+    .feature-card {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 24px; padding: 32px 22px; text-align: center;
+      transition: transform .35s cubic-bezier(.34,1.56,.64,1), box-shadow .35s, border-color .3s;
+      position: relative; overflow: hidden;
+    }
+    .feature-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--green), var(--yellow));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .4s ease;
+    }
+    .feature-card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0,0,0,.3); border-color: rgba(253,221,0,.3); }
+    .feature-card:hover::before { transform: scaleX(1); }
+    .feature-icon {
+      width: 72px; height: 72px;
+      background: rgba(253,221,0,.15);
+      border-radius: 50%; margin: 0 auto 18px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px; color: var(--yellow);
+      transition: transform .4s;
+    }
+    .feature-card:hover .feature-icon { transform: rotate(10deg) scale(1.1); }
+    .feature-card h3 { font-weight: 800; color: #fff; font-size: .95rem; margin-bottom: 8px; }
+    .feature-card p { color: rgba(251,213,7,1.000); font-size: .82rem; line-height: 1.6; }
+
+    /* ===== PRODUCTS ===== */
+    .products-section { background: linear-gradient(180deg, #0d3d22 0%, #0a472e 100%); }
+    .products-section .section-badge { background: rgba(253,221,0,.15); color: var(--yellow); }
+    .products-section .section-title { color: #fff; }
+    .products-section .section-desc { color: rgb(255, 255, 255); }
+    .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    @media (max-width: 900px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .products-grid { grid-template-columns: 1fr; } }
+
+    .product-card {
+      background: rgba(255,255,255,.06);
+      border-radius: 24px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,.1);
+      transition: transform .35s cubic-bezier(.34,1.56,.64,1), box-shadow .35s;
+    }
+    .product-card:hover { transform: translateY(-10px); box-shadow: 0 22px 55px rgba(0,0,0,.4); border-color: rgba(253,221,0,.3); }
+    .product-img-wrap {
+      position: relative; height: 220px; overflow: hidden;
+    }
+    .product-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .5s ease;
+    }
+    .product-card:hover .product-img-wrap img { transform: scale(1.08); }
+    .product-img-wrap::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 60px;
+      background: linear-gradient(to top, rgba(0,0,0,.5), transparent);
+    }
+    .product-badge {
+      position: absolute; top: 12px; left: 12px; z-index: 2;
+      background: var(--green); color: #fff;
+      font-size: .72rem; font-weight: 700; padding: 4px 12px; border-radius: 99px;
+    }
+    .product-badge.hot { background: linear-gradient(135deg, #e53e3e, #c53030); }
+    .product-badge.gift { background: linear-gradient(135deg, #9333ea, #7e22ce); }
+    .product-body { padding: 18px 18px 20px; }
+    .product-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
+    .product-name { font-weight: 800; color: #fff; font-size: 1.05rem; }
+    .stars { color: #f5a623; font-size: .88rem; }
+    .product-desc { color: rgba(255,255,255,.55); font-size: .82rem; line-height: 1.6; margin-bottom: 14px; }
+    .product-price-row { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .price-new { font-size: 1.3rem; font-weight: 900; color: var(--yellow); }
+    .price-old { font-size: .85rem; color: rgba(255,255,255,.35); text-decoration: line-through; }
+    .btn-order {
+      width: 100%; background: linear-gradient(135deg, var(--yellow), #f5c800);
+      color: var(--dark); font-weight: 800;
+      padding: 12px; border-radius: 14px; border: none; cursor: pointer;
+      font-family: 'Noto Sans Bengali', sans-serif; font-size: .9rem;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 15px rgba(253,221,0,.3);
+    }
+    .btn-order:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(253,221,0,.5); }
+
+    /* ===== COUNTER ===== */
+    .counter-section {
+      background: linear-gradient(135deg, #062e1c 0%, var(--green) 100%);
+      padding: 70px 20px; position: relative; overflow: hidden;
+    }
+    .counter-section::before {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23fddd00' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .counter-grid { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; position: relative; }
+    @media (max-width: 640px) { .counter-grid { grid-template-columns: repeat(2, 1fr); } }
+    .counter-box { padding: 20px 10px; }
+    .counter-num { font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 900; color: var(--yellow); line-height: 1; }
+    .counter-lbl { color: rgba(255,255,255,.75); font-size: .82rem; margin-top: 8px; }
+
+    /* ===== PAYMENT ===== */
+    .payment-section { background: linear-gradient(180deg, #0a472e 0%, #0d3d22 100%); }
+    .payment-section .section-badge { background: rgba(253,221,0,.15); color: var(--yellow); }
+    .payment-section .section-title { color: #fff; }
+    .payment-section .section-desc { color: rgba(255,255,255,.6); }
+    .pay-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 30px; }
+    @media (max-width: 700px) { .pay-grid { grid-template-columns: repeat(2, 1fr); } }
+    .pay-card {
+      background: rgba(255,255,255,.07); border-radius: 20px; padding: 24px 16px; text-align: center;
+      border: 1px solid rgba(255,255,255,.1);
+      transition: border-color .3s, transform .3s;
+    }
+    .pay-card:hover { border-color: rgba(253,221,0,.4); transform: translateY(-5px); }
+    .pay-icon { font-size: 38px; margin-bottom: 10px; }
+    .pay-name { font-weight: 800; color: #fff; font-size: .95rem; margin-bottom: 4px; }
+    .pay-num { color: rgba(255,255,255,.55); font-size: .78rem; }
+    .pay-info-card {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 24px; padding: 28px 32px; color: #fff;
+    }
+    .pay-info-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 18px; display: flex; align-items: center; gap: 8px; }
+    .pay-info-title i { color: var(--yellow); }
+    .pay-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 600px) { .pay-info-grid { grid-template-columns: 1fr; } }
+    .pay-info-item { display: flex; align-items: flex-start; gap: 8px; font-size: .84rem; color: rgba(255,255,255,.75); }
+    .pay-info-item i { color: #6ee77a; margin-top: 2px; flex-shrink: 0; }
+
+    /* ===== GALLERY ===== */
+    .gallery-section { background: linear-gradient(180deg, #0d3d22, #0a472e); }
+    .gallery-section .section-badge { background: rgba(253,221,0,.15); color: var(--yellow); }
+    .gallery-section .section-title { color: #fff; }
+    .gallery-section .section-desc { color: rgb(255, 255, 255); }
+    .gallery-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 200px 200px; gap: 16px; }
+    @media (max-width: 768px) { .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; } }
+    @media (max-width: 480px) { .gallery-grid { grid-template-columns: 1fr; } }
+    .gallery-item { border-radius: 20px; overflow: hidden; position: relative; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+    .gallery-item:hover img { transform: scale(1.06); }
+    .gallery-item.big { grid-row: span 2; }
+    .gallery-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,71,46,.7) 0%, transparent 50%);
+      opacity: 0; transition: opacity .3s;
+      display: flex; align-items: flex-end; padding: 16px;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-overlay span { color: #fff; font-weight: 700; font-size: .9rem; }
+
+    /* ===== REVIEWS ===== */
+    .reviews-section { background: linear-gradient(180deg, #0a472e 0%, #0d3d22 100%); }
+    .reviews-section .section-badge { background: rgba(253,221,0,.15); color: var(--yellow); }
+    .reviews-section .section-title { color: #fff; }
+    .review-slider-wrap { overflow: hidden; position: relative; }
+    .review-track { display: flex; gap: 20px; transition: transform .5s cubic-bezier(.4,0,.2,1); }
+    .review-card {
+      min-width: 320px; background: rgba(255,255,255,.07);
+      border-radius: 22px; padding: 26px;
+      border: 1px solid rgba(255,255,255,.1);
+      flex-shrink: 0;
+      transition: transform .3s;
+    }
+    .review-card:hover { transform: translateY(-4px); border-color: rgba(253,221,0,.25); }
+    .review-avatar {
+      width: 50px; height: 50px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 1.2rem; color: #fff;
+      flex-shrink: 0;
+    }
+    .review-name { font-weight: 800; color: #fff; font-size: .95rem; }
+    .review-loc { font-size: .75rem; color: rgba(255,255,255,.45); }
+    .review-text { color: rgba(255,255,255,.65); font-size: .85rem; line-height: 1.7; margin-top: 12px; }
+    .slider-dots { display: flex; justify-content: center; gap: 8px; margin-top: 24px; }
+    .slider-dot {
+      width: 10px; height: 10px; border-radius: 50%; border: none; cursor: pointer;
+      background: rgba(255,255,255,.2); transition: background .3s, width .3s;
+    }
+    .slider-dot.active { background: var(--yellow); width: 28px; border-radius: 5px; }
+
+    /* ===== DELIVERY ===== */
+    .delivery-section { background: linear-gradient(180deg, #0d3d22 0%, #0a472e 100%); }
+    .delivery-section .section-badge { background: rgba(253,221,0,.15); color: var(--yellow); }
+    .delivery-section .section-title { color: #fff; }
+    .delivery-section .section-desc { color: rgba(255,255,255,.6); }
+    .delivery-table { border-radius: 20px; overflow: hidden; box-shadow: 0 10px 35px rgba(0,0,0,.3); }
+    .del-header {
+      background: linear-gradient(90deg, #062e1c, var(--mid));
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      padding: 16px 24px; color: var(--yellow);
+      font-weight: 800; font-size: .9rem; text-align: center;
+    }
+    .del-row {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      padding: 14px 24px; text-align: center;
+      background: rgba(255,255,255,.05); transition: background .2s;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+    }
+    .del-row:hover { background: rgba(253,221,0,.08); }
+    .del-row .area { font-weight: 700; color: #fff; font-size: .88rem; }
+    .del-row .time { color: rgba(255,255,255,.55); font-size: .85rem; }
+    .del-row .charge { font-weight: 800; color: var(--yellow); font-size: .88rem; }
+    .del-row.free-row { background: rgba(90,172,30,.15); }
+    .del-row.free-row .charge { color: #6ee77a; }
+
+    /* ===== FAQ ===== */
+    .faq-section { background: linear-gradient(180deg, #0a472e 0%, #062e1c 100%); }
+    .faq-section .section-badge { background: rgba(253,221,0,.15); color: var(--yellow); }
+    .faq-section .section-title { color: #fff; }
+    .faq-wrap { max-width: 780px; margin: 0 auto; }
+    .faq-item {
+      background: rgba(255,255,255,.06); border-radius: 16px; margin-bottom: 10px;
+      border: 1px solid rgba(255,255,255,.1);
+      overflow: hidden;
+    }
+    .faq-q {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 22px; cursor: pointer;
+      font-weight: 700; color: #fff; font-size: .92rem;
+      transition: background .2s;
+    }
+    .faq-q:hover { background: rgba(253,221,0,.08); }
+    .faq-icon { color: var(--yellow); transition: transform .35s; flex-shrink: 0; margin-left: 12px; }
+    .faq-item.open .faq-icon { transform: rotate(180deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s; }
+    .faq-item.open .faq-a { max-height: 200px; }
+    .faq-a-inner { padding: 0 22px 18px; color: rgba(255,255,255,.6); font-size: .86rem; line-height: 1.7; border-top: 1px solid rgba(255,255,255,.08); padding-top: 14px; }
+
+    /* ===== CONTACT ===== */
+    .contact-section {
+      background: linear-gradient(145deg, #062e1c 0%, #0a472e 40%, var(--mid) 100%);
+      padding: 90px 20px; text-align: center; position: relative; overflow: hidden;
+    }
+    .contact-section::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(253,221,0,.08) 0%, transparent 65%);
+    }
+    .contact-title { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 900; color: #fff; }
+    .contact-desc { color: rgba(255,255,255,.7); margin-top: 10px; margin-bottom: 40px; }
+    .contact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 900px; margin: 0 auto 24px; }
+    @media (max-width: 700px) { .contact-grid { grid-template-columns: repeat(2, 1fr); } }
+    .contact-card {
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15);
+      backdrop-filter: blur(10px);
+      border-radius: 20px; padding: 22px 12px; color: #fff; text-decoration: none;
+      transition: background .3s, transform .3s;
+    }
+    .contact-card:hover { background: rgba(255,255,255,.18); transform: translateY(-5px); }
+    .contact-card i { font-size: 2rem; }
+    .contact-card .c-name { font-weight: 800; font-size: .9rem; }
+    .contact-card .c-info { font-size: .72rem; opacity: .65; }
+    .contact-hours { color: rgb(253,221,0); font-size: .85rem; }
+
+    /* ===== FOOTER ===== */
+    footer { background: #0a472e; padding: 60px 20px 24px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    @media (max-width: 700px) { .footer-grid { grid-template-columns: 1fr; gap: 28px; } }
+    .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .footer-logo-text { color: #fff; font-size: 1.2rem; font-weight: 900; }
+    .footer-about { color: rgb(255, 255, 255); font-size: .84rem; line-height: 1.7; }
+    .footer-heading { color: var(--yellow); font-weight: 800; margin-bottom: 16px; font-size: .9rem; letter-spacing: .05em; }
+    .footer-links { display: flex; flex-direction: column; gap: 8px; }
+    .footer-links a { color: rgba(255,255,255,.55); text-decoration: none; font-size: .84rem; transition: color .2s; }
+    .footer-links a:hover { color: var(--yellow); }
+    .footer-socials { display: flex; gap: 10px; margin-bottom: 16px; }
+    .social-btn {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.7); font-size: 16px; text-decoration: none;
+      transition: background .2s, color .2s, transform .2s;
+    }
+    .social-btn:hover { transform: translateY(-3px); color: #fff; }
+    .social-btn.fb:hover { background: #1877f2; }
+    .social-btn.wa:hover { background: #25d366; }
+    .social-btn.tg:hover { background: #0088cc; }
+    .social-btn.yt:hover { background: #ff0000; }
+    .footer-contact-info { color: rgba(255,255,255,.5); font-size: .82rem; line-height: 2; }
+    .footer-bottom { border-top: 1px solid rgb(255, 255, 255); padding-top: 22px; text-align: center; color: rgb(255, 255, 255); font-size: .78rem; }
+
+    
+    .developer-link{
+  color:#fddd00;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.developer-link:hover{
+  color:#5aac1e;
+  text-decoration:underline;
+}
+    
+    
+    
+    /* ===== ORDER MODAL ===== */
+    #orderModal {
+      position: fixed; inset: 0; z-index: 2000;
+      background: rgba(0,0,0,.75); backdrop-filter: blur(8px);
+      display: none; align-items: center; justify-content: center; padding: 16px;
+    }
+    #orderModal.show { display: flex; }
+    .modal-box {
+      background: #0f3d24; border-radius: 28px;
+      width: 100%; max-width: 540px; max-height: 92vh; overflow-y: auto;
+      box-shadow: 0 30px 90px rgba(0,0,0,.6);
+      border: 1px solid rgba(253,221,0,.2);
+      animation: modalPop .4s cubic-bezier(.34,1.56,.64,1);
+    }
+    @keyframes modalPop { from { transform: scale(.8) translateY(40px); opacity: 0; } to { transform: scale(1) translateY(0); opacity: 1; } }
+    .modal-header {
+      background: linear-gradient(135deg, #062e1c, #1a5535);
+      padding: 24px; border-radius: 28px 28px 0 0; color: #fff;
+      display: flex; justify-content: space-between; align-items: center;
+      border-bottom: 1px solid rgba(253,221,0,.2);
+    }
+    .modal-title { font-size: 1.2rem; font-weight: 900; color: #fff; }
+    .modal-subtitle { font-size: .82rem; margin-top: 3px; color: var(--yellow); }
+    .modal-close { background: none; border: none; color: rgba(255,255,255,.7); font-size: 24px; cursor: pointer; transition: color .2s; }
+    .modal-close:hover { color: #fff; }
+    .modal-body { padding: 24px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
+    .form-group { margin-bottom: 14px; }
+    .form-label { font-weight: 700; font-size: .84rem; color: rgba(255,255,255,.85); margin-bottom: 6px; display: block; }
+    .form-input {
+      width: 100%; border: 1px solid rgba(255,255,255,.15); border-radius: 12px;
+      padding: 11px 14px; font-size: .88rem;
+      font-family: 'Noto Sans Bengali', sans-serif;
+      transition: border-color .2s, box-shadow .2s; outline: none;
+      background: rgba(255,255,255,.08); color: #fff;
+    }
+    .form-input::placeholder { color: rgba(255,255,255,.35); }
+    .form-input:focus { border-color: var(--yellow); box-shadow: 0 0 0 3px rgba(253,221,0,.15); background: rgba(255,255,255,.12); }
+    .form-input.error { border-color: #ef4444; }
+    select.form-input option { background: #0f3d24; color: #fff; }
+    .err-msg { color: #ff7070; font-size: .75rem; margin-top: 4px; display: none; }
+    .err-msg.show { display: block; }
+
+    /* QTY COUNTER */
+    .qty-wrap { display: flex; align-items: center; gap: 0; border: 1px solid rgba(255,255,255,.15); border-radius: 12px; overflow: hidden; background: rgba(255,255,255,.08); }
+    .qty-btn {
+      background: rgba(253,221,0,.15); border: none; color: var(--yellow);
+      font-size: 1.3rem; font-weight: 900; cursor: pointer;
+      padding: 0 16px; height: 44px; line-height: 1;
+      transition: background .2s; font-family: 'Noto Sans Bengali', sans-serif;
+      flex-shrink: 0;
+    }
+    .qty-btn:hover { background: rgba(253,221,0,.3); }
+    .qty-input {
+      border: none; background: transparent; color: #fff;
+      font-size: 1rem; font-weight: 800; text-align: center;
+      width: 60px; height: 44px; outline: none;
+      font-family: 'Noto Sans Bengali', sans-serif;
+    }
+    /* hide number input arrows */
+    .qty-input::-webkit-outer-spin-button,
+    .qty-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    .qty-input[type=number] { -moz-appearance: textfield; }
+
+    /* PRICE CALC */
+    .price-calc-box {
+      background: rgba(253,221,0,.1); border: 1px solid rgba(253,221,0,.3);
+      border-radius: 14px; padding: 14px 18px; margin-bottom: 16px;
+    }
+    .price-calc-row { display: flex; justify-content: space-between; align-items: center; font-size: .84rem; color: rgba(255,255,255,.7); margin-bottom: 6px; }
+    .price-calc-row:last-child { margin-bottom: 0; border-top: 1px solid rgba(253,221,0,.2); padding-top: 8px; margin-top: 4px; }
+    .price-calc-row.total { font-weight: 900; font-size: 1.05rem; color: var(--yellow); }
+    .price-calc-row span:last-child { font-weight: 700; color: #fff; }
+    .price-calc-row.total span:last-child { color: var(--yellow); font-size: 1.2rem; }
+
+    /* PAYMENT INFO BOX */
+    .pay-method-info {
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+      border-radius: 12px; padding: 14px 16px; margin-bottom: 14px;
+      display: none;
+    }
+    .pay-method-info.show { display: block; }
+    .pay-method-label { font-size: .78rem; color: rgba(255,255,255,.55); margin-bottom: 6px; font-weight: 600; }
+    .pay-number-display { font-size: 1.05rem; font-weight: 900; color: var(--yellow); letter-spacing: .05em; }
+    .pay-number-name { font-size: .8rem; color: rgba(255,255,255,.65); margin-top: 2px; }
+
+    .btn-submit {
+      width: 100%; background: linear-gradient(135deg, var(--yellow), #f5c800);
+      color: var(--dark); font-weight: 900; padding: 15px;
+      border-radius: 14px; border: none; cursor: pointer;
+      font-family: 'Noto Sans Bengali', sans-serif; font-size: 1.05rem;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      box-shadow: 0 6px 22px rgba(253,221,0,.3);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(253,221,0,.5); }
+    .btn-submit:disabled { opacity: .65; pointer-events: none; }
+    .modal-note { text-align: center; font-size: .75rem; color: rgba(255,255,255,.4); margin-top: 10px; }
+    .spinner { width: 20px; height: 20px; border: 3px solid rgba(10,71,46,.3); border-top-color: var(--dark); border-radius: 50%; animation: spin .7s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    #successOverlay { display: none; text-align: center; padding: 40px 24px; }
+    #successOverlay.show { display: block; }
+    .success-icon { font-size: 80px; margin-bottom: 16px; }
+    .success-title { font-size: 1.7rem; font-weight: 900; color: var(--yellow); margin-bottom: 8px; }
+    .success-desc { color: rgba(255,255,255,.7); line-height: 1.7; margin-bottom: 20px; }
+    .success-box { background: rgba(255,255,255,.08); border: 1px solid rgba(253,221,0,.2); border-radius: 14px; padding: 16px 20px; text-align: left; margin-bottom: 20px; font-size: .85rem; color: rgba(255,255,255,.85); font-weight: 600; line-height: 2; }
+
+    /* ===== FLOATING ===== */
+    .floating-btns { position: fixed; bottom: 90px; right: 16px; z-index: 900; display: flex; flex-direction: column; gap: 10px; }
+    .float-btn {
+      width: 54px; height: 54px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; text-decoration: none; color: #fff;
+      box-shadow: 0 6px 22px rgba(0,0,0,.25);
+      transition: transform .25s, box-shadow .25s;
+    }
+    .float-btn:hover { transform: scale(1.12) translateY(-2px); }
+    .float-wa { background: linear-gradient(135deg, #25d366, #1aaf55); animation: pulseFB 2.5s ease-in-out infinite; }
+    .float-tg { background: linear-gradient(135deg, #0088cc, #005fa3); animation: pulseFB 2.5s ease-in-out infinite .5s; }
+    @keyframes pulseFB {
+      0%,100% { box-shadow: 0 6px 22px rgba(0,0,0,.25); }
+      50% { box-shadow: 0 6px 35px rgba(0,0,0,.4); }
+    }
+    #backTop {
+      position: fixed; bottom: 22px; right: 16px; z-index: 900;
+      width: 46px; height: 46px; border-radius: 50%;
+      background: rgba(253,221,0,.9); color: var(--dark); font-size: 18px;
+      border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,.25);
+      opacity: 0; visibility: hidden;
+      transition: opacity .3s, visibility .3s, transform .2s;
+    }
+    #backTop.show { opacity: 1; visibility: visible; }
+    #backTop:hover { transform: translateY(-3px); }
+
+    /* ===== BOTTOM CTA ===== */
+    #bottomCTA {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 800;
+      background: linear-gradient(90deg, #062e1c 0%, var(--green) 100%);
+      padding: 12px 16px;
+      display: none; align-items: center; justify-content: space-between; gap: 10px;
+      border-top: 1px solid rgba(253,221,0,.3);
+    }
+    @media (max-width: 768px) { #bottomCTA { display: flex; } }
+    .cta-text-top { font-size: .72rem; color: var(--yellow); font-weight: 700; }
+    .cta-text-main { font-weight: 900; color: #fff; font-size: 1rem; }
+    .cta-btn-mob {
+      background: linear-gradient(135deg, var(--yellow), #f5c800);
+      color: var(--dark); font-weight: 900;
+      padding: 11px 22px; border-radius: 50px; border: none; cursor: pointer;
+      font-family: 'Noto Sans Bengali', sans-serif; font-size: .88rem;
+      white-space: nowrap; box-shadow: 0 4px 14px rgba(253,221,0,.5);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== LOADER ===== -->
+<div id="loader">
+  <div class="loader-mango">🥭</div>
+  <div class="loader-text">আমের রাজ্য</div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+  <div style="color:rgba(255,255,255,.5); font-size:.8rem; margin-top:4px;">লোড হচ্ছে...</div>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <span class="nav-logo-icon">🥭</span>
+      <div>
+        <div class="nav-logo-text">আমের রাজ্য</div>
+        <div class="nav-logo-sub">ORGANIC MANGO STORE</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#features">কেন আমরা</a>
+      <a href="#products">পণ্যসমূহ</a>
+      <a href="#reviews">রিভিউ</a>
+      <a href="#contact">যোগাযোগ</a>
+      <button class="btn-nav-order" onclick="openModal('হিমসাগর আম', 380)">অর্ডার করুন</button>
+    </div>
+    <button id="menuBtn"><i class="fas fa-bars"></i></button>
+  </div>
+</nav>
+<div id="mobileMenu">
+  <a href="#features" onclick="closeMob()">🌿 কেন আমরা</a>
+  <a href="#products" onclick="closeMob()">🛒 পণ্যসমূহ</a>
+  <a href="#reviews" onclick="closeMob()">⭐ রিভিউ</a>
+  <a href="#contact" onclick="closeMob()">📞 যোগাযোগ</a>
+  <button class="mob-order-btn" onclick="openModal('হিমসাগর আম', 380); closeMob();">🥭 অর্ডার করুন</button>
+</div>
+
+<!-- ===== OFFER STRIP ===== -->
+<!--<div class="offer-strip">
+  <div class="marquee-inner">
+    <span>🥭 এই মৌসুমে ৩০% ছাড় চলছে!</span>
+    <span>🚚 ৭২ ঘণ্টায় ডেলিভারি</span>
+    <span>✅ ১০০% অর্গানিক গ্যারান্টি</span>
+    <span>📦 ৫ কেজির উপরে বিনামূল্যে ডেলিভারি</span>
+    <span>🌿 রাসায়নিকমুক্ত তাজা আম</span>
+    <span>🥭 এই মৌসুমে ৩০% ছাড় চলছে!</span>
+    <span>🚚 ৭২ ঘণ্টায় ডেলিভারি</span>
+    <span>✅ ১০০% অর্গানিক গ্যারান্টি</span>
+    <span>📦 ৫ কেজির উপরে বিনামূল্যে ডেলিভারি</span>
+    <span>🌿 রাসায়নিকমুক্ত তাজা আম</span>
+  </div>
+</div>-->
+
+<!-- ===== HERO ===== -->
+<section id="home" class="hero-bg">
+  <div class="hero-particle p1">🥭</div>
+  <div class="hero-particle p2">🌿</div>
+  <div class="hero-particle p3">🥭</div>
+  <div class="hero-particle p4">🍃</div>
+  <div class="hero-particle p5">🥭</div>
+  <div class="hero-particle p6">🌱</div>
+
+  <div class="hero-content">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badge"><i class="fas fa-leaf"></i> ১০০% অর্গানিক ও রাসায়নিকমুক্ত</div>
+        <h1 class="hero-title">প্রকৃতির সেরা<br/><span class="yellow">মিষ্টি আম</span><br/>সরাসরি বাগান থেকে</h1>
+        <p class="hero-desc">চাঁপাইনবাবগঞ্জ ও রাজশাহীর বিখ্যাত বাগান থেকে সংগ্রহ করা তাজা অর্গানিক আম। কোনো কেমিক্যাল নেই, কোনো ভেজাল নেই — শুধু প্রকৃতির খাঁটি স্বাদ।</p>
+
+        <div class="countdown-wrap">
+          <div class="countdown-label-text">⏰ অফার শেষ হওয়ার আগে অর্ডার করুন:</div>
+          <div class="countdown-row">
+            <div class="cd-box"><div class="cd-num" id="cd-h">00</div><div class="cd-unit">ঘণ্টা</div></div>
+            <span class="cd-sep">:</span>
+            <div class="cd-box"><div class="cd-num" id="cd-m">00</div><div class="cd-unit">মিনিট</div></div>
+            <span class="cd-sep">:</span>
+            <div class="cd-box"><div class="cd-num" id="cd-s">00</div><div class="cd-unit">সেকেন্ড</div></div>
+          </div>
+        </div>
+
+        <div class="hero-btns">
+          <button onclick="openModal('হিমসাগর আম', 380)" class="btn-primary">
+            <i class="fas fa-shopping-cart"></i> এখনই অর্ডার করুন
+          </button>
+          <a href="https://wa.me/8801XXXXXXXXX?text=আমি%20অর্গানিক%20আম%20অর্ডার%20করতে%20চাই" target="_blank" class="btn-whatsapp">
+            <i class="fab fa-whatsapp"></i> WhatsApp অর্ডার
+          </a>
+        </div>
+
+        <div class="hero-trust">
+          <div class="trust-item"><i class="fas fa-shield-check"></i> ১০০% গ্যারান্টি</div>
+          <div class="trust-item"><i class="fas fa-truck"></i> দ্রুত ডেলিভারি</div>
+          <div class="trust-item"><i class="fas fa-star"></i> ৪.৯ রেটিং</div>
+          <div class="trust-item"><i class="fas fa-undo"></i> রিফান্ড পলিসি</div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?w=600&q=85&auto=format" alt="তাজা অর্গানিক আম" class="hero-mango-img" />
+        <div class="hero-stats">
+          <div class="stat-pill">
+            <div class="stat-num" data-target="5000">০</div>
+            <div class="stat-lbl">সন্তুষ্ট গ্রাহক</div>
+          </div>
+          <div class="stat-pill">
+            <div class="stat-num" data-target="15">০</div>
+            <div class="stat-lbl">আমের প্রজাতি</div>
+          </div>
+          <div class="stat-pill">
+            <div class="stat-num" data-target="8">০</div>
+            <div class="stat-lbl">বছরের অভিজ্ঞতা</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>    
+</section> 
+  
+<!-- ===== WHY US ===== -->
+<section id="features" class="section why-section">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="section-badge">কেন আমরা সেরা?</div>
+      <h2 class="section-title">আমাদের বিশেষত্ব</h2>
+      <p class="section-desc">প্রতিটি আম আপনার কাছে পৌঁছানোর আগে কঠোর মানসম্পন্ন পরীক্ষা-নিরীক্ষার মধ্য দিয়ে যায়।</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card reveal" style="transition-delay:0s">
+        <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+        <h3>অর্গানিক ও কেমিক্যালমুক্ত</h3>
+        <p>কোনো রাসায়নিক সার বা কীটনাশক ব্যবহার হয় না। সম্পূর্ণ প্রাকৃতিক পদ্ধতিতে চাষ।</p>
+      </div>
+      <div class="feature-card reveal" style="transition-delay:.1s">
+        <div class="feature-icon"><i class="fas fa-seedling"></i></div>
+        <h3>সরাসরি বাগান থেকে</h3>
+        <p>মধ্যস্থতাকারী নেই — বাগান থেকে সরাসরি আপনার দরজায় তাজা আম।</p>
+      </div>
+      <div class="feature-card reveal" style="transition-delay:.2s">
+        <div class="feature-icon"><i class="fas fa-truck-fast"></i></div>
+        <h3>তাজা ডেলিভারি</h3>
+        <p>৪৮–৭২ ঘণ্টার মধ্যে তাজা আম আপনার হাতে। বিশেষ প্যাকেজিংয়ে নিরাপদ।</p>
+      </div>
+      <div class="feature-card reveal" style="transition-delay:.3s">
+        <div class="feature-icon"><i class="fas fa-medal"></i></div>
+        <h3>১০০% মানের নিশ্চয়তা</h3>
+        <p>পণ্য নিয়ে সন্তুষ্ট না হলে সম্পূর্ণ অর্থ ফেরত — কোনো প্রশ্ন ছাড়াই।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section class="section gallery-section">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="section-badge">আমাদের বাগান</div>
+      <h2 class="section-title">সরাসরি বাগান থেকে</h2>
+      <p class="section-desc">রাজশাহী ও চাঁপাইনবাবগঞ্জের সবুজ বাগানে তৈরি হয় আপনার পছন্দের আম।</p>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item big">
+        <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?w=700&q=85&auto=format" alt="আমের বাগান" />
+        <div class="gallery-overlay"><span>🌳 সবুজ বাগান</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1553279768-865429fa0078?w=400&q=85&auto=format" alt="তাজা আম" />
+        <div class="gallery-overlay"><span>🥭 তাজা আম</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1605027990121-cbae9e0642df?w=400&q=85&auto=format" alt="আমের রস" />
+        <div class="gallery-overlay"><span>🍹 রসালো আম</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=400&q=85&auto=format" alt="আমের সংগ্রহ" />
+        <div class="gallery-overlay"><span>📦 প্রিমিয়াম প্যাক</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?w=400&q=85&auto=format" alt="আমের মৌসুম" />
+        <div class="gallery-overlay"><span>🌿 অর্গানিক চাষ</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRODUCTS ===== -->
+<section id="products" class="section products-section">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="section-badge">আমাদের পণ্য</div>
+      <h2 class="section-title">বিশেষ আমের সংগ্রহ</h2>
+      <p class="section-desc">রাজশাহী ও চাঁপাইনবাবগঞ্জের বিখ্যাত বাগান থেকে নির্বাচিত প্রিমিয়াম আম।</p>
+    </div>
+    <div class="products-grid">
+      <div class="product-card reveal" style="transition-delay:0s">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?w=500&q=85&auto=format" alt="হিমসাগর আম" />
+          <div class="product-badge">অর্গানিক</div>
+        </div>
+        <div class="product-body">
+          <div class="product-top"><div class="product-name">হিমসাগর আম</div><div class="stars">★★★★★</div></div>
+          <div class="product-desc">মিষ্টি ও সুগন্ধি হিমসাগর। রসালো ও মোটা শাঁস। বাংলাদেশের সবচেয়ে জনপ্রিয় আম।</div>
+          <div class="product-price-row"><span class="price-new">৳ ৩৮০/কেজি</span><span class="price-old">৳ ৫০০/কেজি</span></div>
+          <button class="btn-order" onclick="openModal('হিমসাগর আম', 380)"><i class="fas fa-shopping-cart"></i> অর্ডার করুন</button>
+        </div>
+      </div>
+      <div class="product-card reveal" style="transition-delay:.1s">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1553279768-865429fa0078?w=500&q=85&auto=format" alt="ল্যাংড়া আম" />
+          <div class="product-badge hot">বেস্টসেলার</div>
+        </div>
+        <div class="product-body">
+          <div class="product-top"><div class="product-name">ল্যাংড়া আম</div><div class="stars">★★★★★</div></div>
+          <div class="product-desc">অতি মিষ্টি ও ঘন আঁশহীন ল্যাংড়া। তীব্র সুগন্ধে ভরপুর। প্রতিবছর সবার পছন্দের শীর্ষে।</div>
+          <div class="product-price-row"><span class="price-new">৳ ৩৫০/কেজি</span><span class="price-old">৳ ৪৫০/কেজি</span></div>
+          <button class="btn-order" onclick="openModal('ল্যাংড়া আম', 350)"><i class="fas fa-shopping-cart"></i> অর্ডার করুন</button>
+        </div>
+      </div>
+      <div class="product-card reveal" style="transition-delay:.2s">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1605027990121-cbae9e0642df?w=500&q=85&auto=format" alt="আম্রপালি আম" />
+          <div class="product-badge">নতুন</div>
+        </div>
+        <div class="product-body">
+          <div class="product-top"><div class="product-name">আম্রপালি আম</div><div class="stars">★★★★☆</div></div>
+          <div class="product-desc">টকমিষ্টি স্বাদের আম্রপালি। দীর্ঘদিন সংরক্ষণযোগ্য। সালাদ ও আচারে অতুলনীয়।</div>
+          <div class="product-price-row"><span class="price-new">৳ ৩০০/কেজি</span><span class="price-old">৳ ৪০০/কেজি</span></div>
+          <button class="btn-order" onclick="openModal('আম্রপালি আম', 300)"><i class="fas fa-shopping-cart"></i> অর্ডার করুন</button>
+        </div>
+      </div>
+      <div class="product-card reveal" style="transition-delay:.3s">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=500&q=85&auto=format" alt="ফজলি আম" />
+          <div class="product-badge">প্রিমিয়াম</div>
+        </div>
+        <div class="product-body">
+          <div class="product-top"><div class="product-name">ফজলি আম</div><div class="stars">★★★★★</div></div>
+          <div class="product-desc">বড় আকারের রাজকীয় ফজলি। মিষ্টি ও রসালো। উপহার হিসেবে সবচেয়ে জনপ্রিয়।</div>
+          <div class="product-price-row"><span class="price-new">৳ ২৮০/কেজি</span><span class="price-old">৳ ৩৮০/কেজি</span></div>
+          <button class="btn-order" onclick="openModal('ফজলি আম', 280)"><i class="fas fa-shopping-cart"></i> অর্ডার করুন</button>
+        </div>
+      </div>
+      <div class="product-card reveal" style="transition-delay:.4s">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?w=500&q=85&auto=format" alt="গোপালভোগ আম" />
+          <div class="product-badge hot">সীমিত স্টক</div>
+        </div>
+        <div class="product-body">
+          <div class="product-top"><div class="product-name">গোপালভোগ আম</div><div class="stars">★★★★★</div></div>
+          <div class="product-desc">মৌসুমের প্রথম আম গোপালভোগ। ছোট ও অতি মিষ্টি। মৌসুমে মাত্র কয়েক সপ্তাহ পাওয়া যায়।</div>
+          <div class="product-price-row"><span class="price-new">৳ ৪২০/কেজি</span><span class="price-old">৳ ৫৫০/কেজি</span></div>
+          <button class="btn-order" onclick="openModal('গোপালভোগ আম', 420)"><i class="fas fa-shopping-cart"></i> অর্ডার করুন</button>
+        </div>
+      </div>
+      <div class="product-card reveal" style="transition-delay:.5s">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1560762484-813fc97650a0?w=500&q=85&auto=format" alt="গিফট বক্স" />
+          <div class="product-badge gift">গিফট বক্স</div>
+        </div>
+        <div class="product-body">
+          <div class="product-top"><div class="product-name">মিক্সড গিফট বক্স</div><div class="stars">★★★★★</div></div>
+          <div class="product-desc">বিভিন্ন প্রজাতির আমের সংমিশ্রণে ৫ কেজির প্রিমিয়াম গিফট বক্স। উপহারের জন্য আদর্শ।</div>
+          <div class="product-price-row"><span class="price-new">৳ ১৭৫০/বক্স</span><span class="price-old">৳ ২২০০/বক্স</span></div>
+          <button class="btn-order" onclick="openModal('মিক্সড গিফট বক্স (৫ কেজি)', 1750, true)"><i class="fas fa-gift"></i> অর্ডার করুন</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COUNTER ===== -->
+<section class="counter-section">
+  <div class="counter-grid">
+    <div class="counter-box reveal"><div class="counter-num" data-target="5000">০</div><div class="counter-lbl">সন্তুষ্ট গ্রাহক</div></div>
+    <div class="counter-box reveal" style="transition-delay:.1s"><div class="counter-num" data-target="15">০</div><div class="counter-lbl">আমের প্রজাতি</div></div>
+    <div class="counter-box reveal" style="transition-delay:.2s"><div class="counter-num" data-target="8">০</div><div class="counter-lbl">বছরের অভিজ্ঞতা</div></div>
+    <div class="counter-box reveal" style="transition-delay:.3s"><div class="counter-num" data-target="64">০</div><div class="counter-lbl">জেলায় ডেলিভারি</div></div>
+  </div>
+</section>
+
+<!-- ===== PAYMENT ===== -->
+<section id="payment" class="section payment-section">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="section-badge">পেমেন্ট পদ্ধতি</div>
+      <h2 class="section-title">সহজে পেমেন্ট করুন</h2>
+      <p class="section-desc">আপনার পছন্দমতো যেকোনো পদ্ধতিতে পেমেন্ট করুন</p>
+    </div>
+    <div class="pay-grid">
+      <div class="pay-card reveal"><div class="pay-icon">💳</div><div class="pay-name">Cash on Delivery</div><div class="pay-num">পণ্য পেয়ে পেমেন্ট</div></div>
+      <div class="pay-card reveal" style="transition-delay:.1s"><div class="pay-icon" style="color:#E2136E;">📱</div><div class="pay-name">বিকাশ</div><div class="pay-num">01XXXXXXXXX</div></div>
+      <div class="pay-card reveal" style="transition-delay:.2s"><div class="pay-icon" style="color:#F7941D;">📱</div><div class="pay-name">নগদ</div><div class="pay-num">01XXXXXXXXX</div></div>
+      <div class="pay-card reveal" style="transition-delay:.3s"><div class="pay-icon" style="color:#8B1F8B;">📱</div><div class="pay-name">রকেট</div><div class="pay-num">01XXXXXXXXX</div></div>
+    </div>
+    <div class="pay-info-card reveal">
+      <div class="pay-info-title"><i class="fas fa-info-circle"></i> পেমেন্ট নির্দেশিকা</div>
+      <div class="pay-info-grid">
+        <div class="pay-info-item"><i class="fas fa-check-circle"></i><span>অর্ডার কনফার্মের পর নির্দিষ্ট নম্বরে পেমেন্ট করুন এবং ট্র্যানজ্যাকশন আইডি পাঠান।</span></div>
+        <div class="pay-info-item"><i class="fas fa-check-circle"></i><span>অগ্রিম পেমেন্টে অতিরিক্ত ৫% ছাড় পাবেন।</span></div>
+        <div class="pay-info-item"><i class="fas fa-check-circle"></i><span>COD-তে ৫০ টাকা অতিরিক্ত চার্জ প্রযোজ্য।</span></div>
+        <div class="pay-info-item"><i class="fas fa-check-circle"></i><span>পণ্যে সমস্যা হলে ৪৮ ঘণ্টার মধ্যে জানালে সম্পূর্ণ রিফান্ড।</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section id="reviews" class="section reviews-section">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="section-badge">গ্রাহকদের মতামত</div>
+      <h2 class="section-title">তারা কী বলছেন</h2>
+    </div>
+    <div class="review-slider-wrap reveal">
+      <div class="review-track" id="reviewTrack">
+        <div class="review-card">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+            <div class="review-avatar" style="background:linear-gradient(135deg,var(--green),var(--mid));">র</div>
+            <div><div class="review-name">রহিম মিয়া</div><div class="review-loc">ঢাকা</div></div>
+            <div class="stars" style="margin-left:auto;">★★★★★</div>
+          </div>
+          <p class="review-text">সত্যিই অসাধারণ আম! হিমসাগর নিয়েছিলাম, এতটা সুমিষ্টি ও সুগন্ধি আম আগে কখনো খাইনি। প্যাকেজিং খুব সুন্দর, সময়মতো ডেলিভারি।</p>
+        </div>
+        <div class="review-card">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+            <div class="review-avatar" style="background:linear-gradient(135deg,#f59e0b,#d97706);">ফ</div>
+            <div><div class="review-name">ফারহানা বেগম</div><div class="review-loc">চট্টগ্রাম</div></div>
+            <div class="stars" style="margin-left:auto;">★★★★★</div>
+          </div>
+          <p class="review-text">গিফট বক্সটা নিয়েছিলাম শাশুড়ির জন্য। উনি এত খুশি হয়েছেন! প্যাকেজিং দারুণ, আম তাজা ও সুস্বাদু। আবার নেব ইনশাআল্লাহ।</p>
+        </div>
+        <div class="review-card">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+            <div class="review-avatar" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8);">ক</div>
+            <div><div class="review-name">করিম সাহেব</div><div class="review-loc">সিলেট</div></div>
+            <div class="stars" style="margin-left:auto;">★★★★★</div>
+          </div>
+          <p class="review-text">ল্যাংড়া আম নিয়েছি তিনবার। প্রতিবারই মান একই রকম চমৎকার। দাম একটু বেশি মনে হলেও কোয়ালিটির কাছে সেটা কিছুই না।</p>
+        </div>
+        <div class="review-card">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+            <div class="review-avatar" style="background:linear-gradient(135deg,#ec4899,#be185d);">স</div>
+            <div><div class="review-name">সুমাইয়া আক্তার</div><div class="review-loc">রাজশাহী</div></div>
+            <div class="stars" style="margin-left:auto;">★★★★★</div>
+          </div>
+          <p class="review-text">রাজশাহীতে থাকি, তবু এখান থেকে নিই কারণ এদের সিলেকশন ভালো। গোপালভোগ পেয়ে অবাক হয়ে গেছি — সত্যিই আসল স্বাদ।</p>
+        </div>
+        <div class="review-card">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+            <div class="review-avatar" style="background:linear-gradient(135deg,#10b981,#065f46);">আ</div>
+            <div><div class="review-name">আবদুল হান্নান</div><div class="review-loc">ময়মনসিংহ</div></div>
+            <div class="stars" style="margin-left:auto;">★★★★☆</div>
+          </div>
+          <p class="review-text">আম্রপালি নিয়েছিলাম। টকমিষ্টি স্বাদ একদম পারফেক্ট! আচার বানাতে গেলে এর বিকল্প নেই। পরের বার আরও বেশি নেব।</p>
+        </div>
+      </div>
+    </div>
+    <div class="slider-dots" id="sliderDots"></div>
+  </div>
+</section>
+
+<!-- ===== DELIVERY ===== -->
+<section id="delivery" class="section delivery-section">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="section-badge">ডেলিভারি তথ্য</div>
+      <h2 class="section-title">সারাদেশে ডেলিভারি</h2>
+      <p class="section-desc">বাংলাদেশের যেকোনো জেলায় আমরা ডেলিভারি দিই।</p>
+    </div>
+    <div class="delivery-table reveal" style="max-width: 700px; margin: 0 auto;">
+      <div class="del-header"><div>এলাকা</div><div>সময়</div><div>চার্জ</div></div>
+      <div class="del-row"><div class="area">🏙️ ঢাকা মেট্রো</div><div class="time">২৪–৪৮ ঘণ্টা</div><div class="charge">৳ ৮০</div></div>
+      <div class="del-row"><div class="area">🌆 ঢাকা বিভাগ</div><div class="time">৪৮–৬০ ঘণ্টা</div><div class="charge">৳ ১০০</div></div>
+      <div class="del-row"><div class="area">🌇 চট্টগ্রাম বিভাগ</div><div class="time">৪৮–৭২ ঘণ্টা</div><div class="charge">৳ ১২০</div></div>
+      <div class="del-row"><div class="area">🌃 সিলেট বিভাগ</div><div class="time">৪৮–৭২ ঘণ্টা</div><div class="charge">৳ ১২০</div></div>
+      <div class="del-row"><div class="area">🌉 রাজশাহী বিভাগ</div><div class="time">২৪–৪৮ ঘণ্টা</div><div class="charge">৳ ৮০</div></div>
+      <div class="del-row"><div class="area">🏘️ অন্যান্য বিভাগ</div><div class="time">৬০–৭২ ঘণ্টা</div><div class="charge">৳ ১৩০</div></div>
+      <div class="del-row free-row"><div class="area" style="color:var(--yellow); font-weight:800;">🎉 ৫ কেজির উপরে</div><div class="time" style="color:rgba(255,255,255,.7);">সর্বত্র</div><div class="charge" style="color:#6ee77a;">বিনামূল্যে ✓</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq" class="section faq-section">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="section-badge">সাধারণ প্রশ্ন</div>
+      <h2 class="section-title">জিজ্ঞাসা ও উত্তর</h2>
+    </div>
+    <div class="faq-wrap" id="faqWrap"></div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="contact-section">
+  <div style="position:relative; z-index:2;">
+    <div class="reveal"><div class="section-badge" style="background:rgba(253,221,0,.15); color:var(--yellow);">যোগাযোগ করুন</div></div>
+    <h2 class="contact-title reveal" style="margin-top:10px;">আমাদের সাথে কথা বলুন</h2>
+    <p class="contact-desc reveal">যেকোনো প্রশ্ন বা অর্ডারের জন্য সরাসরি যোগাযোগ করুন</p>
+    <div class="contact-grid reveal">
+      <a href="https://wa.me/8801XXXXXXXXX" target="_blank" class="contact-card">
+        <i class="fab fa-whatsapp" style="color:#25d366;"></i>
+        <div class="c-name">WhatsApp</div><div class="c-info">01XXXXXXXXX</div>
+      </a>
+      <a href="https://t.me/YourTelegramID" target="_blank" class="contact-card">
+        <i class="fab fa-telegram" style="color:#0088cc;"></i>
+        <div class="c-name">Telegram</div><div class="c-info">@YourUsername</div>
+      </a>
+      <a href="https://facebook.com/YourPage" target="_blank" class="contact-card">
+        <i class="fab fa-facebook" style="color:#4267b2;"></i>
+        <div class="c-name">Facebook</div><div class="c-info">আমের রাজ্য</div>
+      </a>
+      <a href="mailto:info@amersajyo.com" class="contact-card">
+        <i class="fas fa-envelope" style="color:var(--yellow);"></i>
+        <div class="c-name">ইমেইল</div><div class="c-info">info@amersajyo.com</div>
+      </a>
+    </div>
+    <p class="contact-hours reveal">সকাল ৮টা – রাত ১০টা পর্যন্ত সেবা প্রদান করা হয়</p>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <span style="font-size:32px;">🥭</span>
+          <div><div class="footer-logo-text">আমের রাজ্য</div><div style="font-size:.6rem; color:rgba(255,255,255,.3); letter-spacing:.08em;">ORGANIC MANGO STORE</div></div>
+        </div>
+        <p class="footer-about">বাংলাদেশের সেরা অর্গানিক আমের অনলাইন স্টোর। সরাসরি বাগান থেকে আপনার দরজায়। ৮ বছরের বিশ্বস্ততা।</p>
+      </div>
+      <div>
+        <div class="footer-heading">দ্রুত লিঙ্ক</div>
+        <div class="footer-links">
+          <a href="#home">🏠 হোম</a>
+          <a href="#products">🛒 পণ্যসমূহ</a>
+          <a href="#payment">💳 পেমেন্ট</a>
+          <a href="#delivery">🚚 ডেলিভারি</a>
+          <a href="#faq">❓ FAQ</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">সোশ্যাল মিডিয়া</div>
+        <div class="footer-socials">
+          <a href="#" class="social-btn fb"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="social-btn wa"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="social-btn tg"><i class="fab fa-telegram"></i></a>
+          <a href="#" class="social-btn yt"><i class="fab fa-youtube"></i></a>
+        </div>
+        <div class="footer-contact-info">
+          📞 01XXXXXXXXX<br/>
+          ✉️ info@amersajyo.com<br/>
+          📍 রাজশাহী, বাংলাদেশ
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">© ২০২৫ আমের রাজ্য। সমস্ত স্বত্ব সংরক্ষিত। | Designed & Developed by 
+    <a href="https://wahids.shop" target="_blank" class="developer-link">Wahids</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== ORDER MODAL ===== -->
+<div id="orderModal">
+  <div class="modal-box">
+    <div id="modalFormView">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title">🛒 অর্ডার করুন</div>
+          <div class="modal-subtitle" id="modalSub"></div>
+        </div>
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">পণ্যের নাম</label>
+          <input type="text" id="f-product" class="form-input" style="opacity:.7;" readonly />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">আপনার নাম *</label>
+            <input type="text" id="f-name" class="form-input" placeholder="পূর্ণ নাম" />
+            <div class="err-msg" id="err-name">নাম প্রয়োজন</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">মোবাইল নম্বর *</label>
+            <input type="tel" id="f-phone" class="form-input" placeholder="01XXXXXXXXX" />
+            <div class="err-msg" id="err-phone">সঠিক নম্বর দিন</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">সম্পূর্ণ ঠিকানা *</label>
+          <textarea id="f-address" class="form-input" rows="2" placeholder="গ্রাম/মহল্লা, থানা, জেলা"></textarea>
+          <div class="err-msg" id="err-address">ঠিকানা প্রয়োজন</div>
+        </div>
+
+        <!-- QTY + PRICE ROW -->
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">পরিমাণ (কেজি) *</label>
+            <div class="qty-wrap">
+              <button class="qty-btn" type="button" onclick="changeQty(-1)">−</button>
+              <input type="number" id="f-qty" class="qty-input" value="1" min="1" max="100" oninput="updatePrice()" />
+              <button class="qty-btn" type="button" onclick="changeQty(1)">+</button>
+            </div>
+            <div class="err-msg" id="err-qty">পরিমাণ দিন</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">পেমেন্ট পদ্ধতি *</label>
+            <select id="f-payment" class="form-input" onchange="onPaymentChange()">
+              <option value="COD">Cash on Delivery</option>
+              <option value="Bkash">বিকাশ</option>
+              <option value="Nagad">নগদ</option>
+              <option value="Rocket">রকেট</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- PAYMENT NUMBER INFO -->
+        <div class="pay-method-info" id="payMethodInfo">
+          <div class="pay-method-label" id="payMethodLabel">পেমেন্ট করুন এই নম্বরে:</div>
+          <div class="pay-number-display" id="payNumberDisplay"></div>
+          <div class="pay-number-name" id="payNumberName"></div>
+        </div>
+
+        <!-- TRANSACTION ID (shown for mobile banking) -->
+        <div class="form-group" id="txnGroup" style="display:none;">
+          <label class="form-label">Transaction ID *</label>
+          <input type="text" id="f-txn" class="form-input" placeholder="ট্র্যানজ্যাকশন আইডি লিখুন" />
+          <div class="err-msg" id="err-txn">Transaction ID প্রয়োজন</div>
+        </div>
+
+        <!-- PRICE CALCULATION -->
+        <div class="price-calc-box" id="priceCalcBox">
+          <div class="price-calc-row">
+            <span>একক মূল্য</span>
+            <span id="calc-unit">৳ ০</span>
+          </div>
+          <div class="price-calc-row">
+            <span>পরিমাণ</span>
+            <span id="calc-qty">১ কেজি</span>
+          </div>
+          <div class="price-calc-row">
+            <span>পণ্যের মূল্য</span>
+            <span id="calc-subtotal">৳ ০</span>
+          </div>
+          <div class="price-calc-row">
+            <span id="calc-delivery-label">ডেলিভারি চার্জ</span>
+            <span id="calc-delivery">৳ ৮০</span>
+          </div>
+          <div class="price-calc-row total">
+            <span>মোট পরিশোধযোগ্য</span>
+            <span id="calc-total">৳ ০</span>
+          </div>
+        </div>
+
+        <button id="submitBtn" class="btn-submit" onclick="submitOrder()">
+          <i class="fas fa-paper-plane"></i> অর্ডার কনফার্ম করুন
+        </button>
+        <div class="modal-note">অর্ডার দেওয়ার পর WhatsApp-এ কনফার্মেশন যাবে।</div>
+      </div>
+    </div>
+    <div id="successOverlay">
+      <div class="success-icon">🎉</div>
+      <div class="success-title">অর্ডার সফল হয়েছে!</div>
+      <p class="success-desc">আপনার অর্ডার পেয়েছি। শীঘ্রই আমাদের প্রতিনিধি আপনার সাথে যোগাযোগ করবে।</p>
+      <div class="success-box" id="successSummary"></div>
+      <button class="btn-primary" onclick="closeModal()"><i class="fas fa-check"></i> ঠিক আছে</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FLOATING ===== -->
+<div class="floating-btns">
+  <a href="https://wa.me/8801XXXXXXXXX?text=আমি%20অর্গানিক%20আম%20অর্ডার%20করতে%20চাই" target="_blank" class="float-btn float-wa" title="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  <a href="https://t.me/YourTelegramID" target="_blank" class="float-btn float-tg" title="Telegram">
+    <i class="fab fa-telegram"></i>
+  </a>
+</div>
+<button id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<div id="bottomCTA">
+  <div>
+    <div class="cta-text-top">এই মৌসুমে ৩০% ছাড়!</div>
+    <div class="cta-text-main">এখনই অর্ডার করুন 🥭</div>
+  </div>
+  <button class="cta-btn-mob" onclick="openModal('হিমসাগর আম', 380)">অর্ডার করুন</button>
+</div>
+
+<script>
+const CONFIG = {
+  whatsappNumber: '8801XXXXXXXXX',
+  telegramBotToken: 'YOUR_BOT_TOKEN_HERE',
+  telegramChatId: 'YOUR_CHAT_ID_HERE',
+  // আপনার নম্বরগুলো এখানে বসান:
+  bkashNumber: '01712-345678',
+  nagadNumber: '01898-765432',
+  rocketNumber: '01611-234567',
+  bkashName: 'আমের রাজ্য (Personal)',
+  nagadName: 'আমের রাজ্য (Personal)',
+  rocketName: 'আমের রাজ্য (Personal)',
+};
+
+let currentPrice = 380;
+let isBox = false;
+
+// LOADER
+window.addEventListener('load', () => {
+  setTimeout(() => document.getElementById('loader').classList.add('hide'), 2000);
+});
+
+// NAVBAR
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+  document.getElementById('backTop').classList.toggle('show', window.scrollY > 400);
+});
+
+// MOBILE MENU
+document.getElementById('menuBtn').addEventListener('click', () => {
+  document.getElementById('mobileMenu').classList.toggle('open');
+});
+function closeMob() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+// COUNTDOWN
+(function() {
+  const end = Date.now() + (23 * 3600 + 45 * 60 + 33) * 1000;
+  function tick() {
+    const diff = Math.max(0, end - Date.now());
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
+    document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
+    document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
+  }
+  tick(); setInterval(tick, 1000);
+})();
+
+// COUNTERS
+let countersRan = false;
+function animateCounters() {
+  if (countersRan) return; countersRan = true;
+  document.querySelectorAll('[data-target]').forEach(el => {
+    const target = +el.dataset.target;
+    const dur = 2000, step = target / (dur / 16);
+    let cur = 0;
+    const t = setInterval(() => {
+      cur = Math.min(cur + step, target);
+      el.textContent = Math.floor(cur).toLocaleString('bn-BD');
+      if (cur >= target) clearInterval(t);
+    }, 16);
+  });
+}
+
+// REVEAL
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      if (e.target.closest('.counter-section')) animateCounters();
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => revObs.observe(el));
+const heroObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) animateCounters(); });
+}, { threshold: 0.3 });
+const heroRight = document.querySelector('.hero-right');
+if (heroRight) heroObs.observe(heroRight);
+
+// FAQ
+const faqs = [
+  { q: 'আমগুলো কি সত্যিই অর্গানিক?', a: 'হ্যাঁ, আমাদের সমস্ত আম সম্পূর্ণ অর্গানিক পদ্ধতিতে চাষ করা হয়। কোনো সিনথেটিক সার, কীটনাশক বা পাকানোর কেমিক্যাল ব্যবহার হয় না।' },
+  { q: 'অর্ডার দেওয়ার কতদিন পর ডেলিভারি পাব?', a: 'ঢাকায় সাধারণত ২৪–৪৮ ঘণ্টায় ডেলিভারি হয়। অন্যান্য বিভাগে ৪৮–৭২ ঘণ্টা লাগে।' },
+  { q: 'ন্যূনতম কত কেজি অর্ডার করা যাবে?', a: 'সর্বনিম্ন ১ কেজি থেকে অর্ডার করা যাবে। ৫ কেজি বা তার বেশিতে বিনামূল্যে ডেলিভারি।' },
+  { q: 'আম পচে গেলে বা মানসম্পন্ন না হলে কী করব?', a: 'ডেলিভারির ৪৮ ঘণ্টার মধ্যে ছবি তুলে WhatsApp-এ পাঠান। সম্পূর্ণ পণ্য রিপ্লেস অথবা টাকা ফেরত দেব।' },
+  { q: 'পাইকারি মূল্যে কি পাওয়া যাবে?', a: 'হ্যাঁ! ১০ কেজির বেশি অর্ডারে বিশেষ পাইকারি মূল্য পাওয়া যায়। WhatsApp-এ যোগাযোগ করুন।' },
+  { q: 'কোন কুরিয়ার সার্ভিসে ডেলিভারি দেওয়া হয়?', a: 'Sundarban Courier, SA Paribahan, Steadfast এবং Pathao Courier ব্যবহার করা হয়।' },
+];
+const faqWrap = document.getElementById('faqWrap');
+faqs.forEach((f, i) => {
+  const div = document.createElement('div');
+  div.className = 'faq-item';
+  div.innerHTML = `<div class="faq-q" onclick="toggleFaq(${i})"><span>${f.q}</span><i class="fas fa-chevron-down faq-icon"></i></div><div class="faq-a"><div class="faq-a-inner">${f.a}</div></div>`;
+  faqWrap.appendChild(div);
+});
+function toggleFaq(i) {
+  document.querySelectorAll('.faq-item').forEach((el, idx) => {
+    el.classList.toggle('open', idx === i && !el.classList.contains('open'));
+  });
+}
+
+// REVIEW SLIDER
+(function() {
+  const track = document.getElementById('reviewTrack');
+  const cards = track.children;
+  const dotsEl = document.getElementById('sliderDots');
+  let cur = 0;
+  const vis = window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+  const pages = Math.ceil(cards.length / vis);
+  for (let i = 0; i < pages; i++) {
+    const d = document.createElement('button');
+    d.className = 'slider-dot' + (i === 0 ? ' active' : '');
+    d.onclick = () => goTo(i);
+    dotsEl.appendChild(d);
+  }
+  function goTo(page) {
+    cur = page;
+    const w = cards[0].offsetWidth + 20;
+    track.style.transform = `translateX(-${cur * vis * w}px)`;
+    document.querySelectorAll('.slider-dot').forEach((d, i) => d.classList.toggle('active', i === cur));
+  }
+  setInterval(() => goTo((cur + 1) % pages), 4000);
+})();
+
+// ========== MODAL & ORDER LOGIC ==========
+
+function openModal(name, price, box = false) {
+  currentPrice = price;
+  isBox = box;
+  document.getElementById('f-product').value = name;
+  document.getElementById('modalSub').textContent = name + ' — ৳ ' + price.toLocaleString('bn-BD') + (box ? '/বক্স' : '/কেজি');
+  document.getElementById('modalFormView').style.display = 'block';
+  document.getElementById('successOverlay').classList.remove('show');
+  document.getElementById('f-qty').value = 1;
+  document.getElementById('f-payment').value = 'COD';
+  document.getElementById('f-txn') && (document.getElementById('f-txn').value = '');
+  clearErrors();
+  onPaymentChange();
+  updatePrice();
+  document.getElementById('orderModal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('orderModal').classList.remove('show');
+  document.body.style.overflow = '';
+}
+document.getElementById('orderModal').addEventListener('click', e => {
+  if (e.target === document.getElementById('orderModal')) closeModal();
+});
+
+// QTY buttons
+function changeQty(delta) {
+  const inp = document.getElementById('f-qty');
+  let val = parseInt(inp.value) || 1;
+  val = Math.max(1, val + delta);
+  inp.value = val;
+  updatePrice();
+}
+
+// PRICE CALC
+function updatePrice() {
+  const qty = Math.max(1, parseInt(document.getElementById('f-qty').value) || 1);
+  const subtotal = currentPrice * qty;
+  const freeDelivery = qty >= 5;
+  const deliveryCharge = freeDelivery ? 0 : 80;
+  const payMethod = document.getElementById('f-payment').value;
+  const codExtra = payMethod === 'COD' ? 50 : 0;
+  const total = subtotal + deliveryCharge + codExtra;
+
+  document.getElementById('calc-unit').textContent = '৳ ' + currentPrice.toLocaleString();
+  document.getElementById('calc-qty').textContent = qty + (isBox ? ' বক্স' : ' কেজি');
+  document.getElementById('calc-subtotal').textContent = '৳ ' + subtotal.toLocaleString();
+
+  if (freeDelivery) {
+    document.getElementById('calc-delivery-label').textContent = 'ডেলিভারি চার্জ';
+    document.getElementById('calc-delivery').textContent = 'বিনামূল্যে ✓';
+    document.getElementById('calc-delivery').style.color = '#6ee77a';
+  } else {
+    const dlabel = payMethod === 'COD'
+      ? 'ডেলিভারি + COD চার্জ'
+      : 'ডেলিভারি চার্জ';
+    document.getElementById('calc-delivery-label').textContent = dlabel;
+    const dcharge = payMethod === 'COD' ? (deliveryCharge + 50) : deliveryCharge;
+    document.getElementById('calc-delivery').textContent = '৳ ' + dcharge.toLocaleString();
+    document.getElementById('calc-delivery').style.color = '#fff';
+  }
+
+  document.getElementById('calc-total').textContent = '৳ ' + total.toLocaleString();
+}
+
+// PAYMENT METHOD CHANGE
+function onPaymentChange() {
+  const method = document.getElementById('f-payment').value;
+  const infoBox = document.getElementById('payMethodInfo');
+  const txnGroup = document.getElementById('txnGroup');
+
+  if (method === 'COD') {
+    infoBox.classList.remove('show');
+    txnGroup.style.display = 'none';
+  } else {
+    infoBox.classList.add('show');
+    txnGroup.style.display = 'block';
+    let num = '', name = '', emoji = '';
+    if (method === 'Bkash') {
+      num = CONFIG.bkashNumber; name = CONFIG.bkashName; emoji = '🩷 বিকাশ';
+    } else if (method === 'Nagad') {
+      num = CONFIG.nagadNumber; name = CONFIG.nagadName; emoji = '🟠 নগদ';
+    } else if (method === 'Rocket') {
+      num = CONFIG.rocketNumber; name = CONFIG.rocketName; emoji = '🟣 রকেট';
+    }
+    document.getElementById('payMethodLabel').textContent = emoji + ' নম্বরে পেমেন্ট করুন:';
+    document.getElementById('payNumberDisplay').textContent = num;
+    document.getElementById('payNumberName').textContent = 'নাম: ' + name;
+  }
+  updatePrice();
+}
+
+// VALIDATION
+function clearErrors() {
+  ['name','phone','address','qty','txn'].forEach(f => {
+    const el = document.getElementById('f-'+f);
+    const err = document.getElementById('err-'+f);
+    if (el) el.classList.remove('error');
+    if (err) err.classList.remove('show');
+  });
+}
+function showErr(f) {
+  const el = document.getElementById('f-'+f);
+  const err = document.getElementById('err-'+f);
+  if (el) el.classList.add('error');
+  if (err) err.classList.add('show');
+}
+function validate() {
+  let ok = true;
+  const name = document.getElementById('f-name').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  const addr = document.getElementById('f-address').value.trim();
+  const qty = document.getElementById('f-qty').value;
+  const pay = document.getElementById('f-payment').value;
+  if (!name) { showErr('name'); ok = false; }
+  if (!/^01[3-9]\d{8}$/.test(phone)) { showErr('phone'); ok = false; }
+  if (!addr) { showErr('address'); ok = false; }
+  if (!qty || qty < 1) { showErr('qty'); ok = false; }
+  if (pay !== 'COD') {
+    const txn = document.getElementById('f-txn').value.trim();
+    if (!txn) { showErr('txn'); ok = false; }
+  }
+  return ok;
+}
+
+async function submitOrder() {
+  clearErrors();
+  if (!validate()) return;
+  const btn = document.getElementById('submitBtn');
+  btn.innerHTML = '<div class="spinner"></div> প্রসেস হচ্ছে...';
+  btn.disabled = true;
+
+  const product = document.getElementById('f-product').value;
+  const name = document.getElementById('f-name').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  const addr = document.getElementById('f-address').value.trim();
+  const qty = document.getElementById('f-qty').value;
+  const pay = document.getElementById('f-payment').value;
+  const txn = pay !== 'COD' ? document.getElementById('f-txn').value.trim() : 'N/A';
+  const total = document.getElementById('calc-total').textContent;
+
+  const msg = `🥭 *নতুন অর্ডার — আমের রাজ্য*\n\n📦 পণ্য: ${product}\n👤 নাম: ${name}\n📞 ফোন: ${phone}\n🏠 ঠিকানা: ${addr}\n⚖️ পরিমাণ: ${qty} ${isBox ? 'বক্স' : 'কেজি'}\n💳 পেমেন্ট: ${pay}${txn !== 'N/A' ? '\n🔖 TxnID: ' + txn : ''}\n💰 মোট: ${total}\n\n✅ অর্ডার কনফার্ম করুন`;
+  const waURL = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(msg)}`;
+
+  if (CONFIG.telegramBotToken !== 'YOUR_BOT_TOKEN_HERE') {
+    const tgURL = `https://api.telegram.org/bot${CONFIG.telegramBotToken}/sendMessage?chat_id=${CONFIG.telegramChatId}&text=${encodeURIComponent(msg.replace(/\*/g,''))}`;
+    fetch(tgURL).catch(()=>{});
+  }
+
+  await new Promise(r => setTimeout(r, 1200));
+  btn.innerHTML = '<i class="fas fa-paper-plane"></i> অর্ডার কনফার্ম করুন';
+  btn.disabled = false;
+
+  document.getElementById('modalFormView').style.display = 'none';
+  document.getElementById('successOverlay').classList.add('show');
+  document.getElementById('successSummary').innerHTML =
+    `✅ পণ্য: ${product}<br/>👤 নাম: ${name}<br/>📞 ফোন: ${phone}<br/>⚖️ পরিমাণ: ${qty} ${isBox ? 'বক্স' : 'কেজি'}<br/>💳 পেমেন্ট: ${pay}${txn !== 'N/A' ? '<br/>🔖 TxnID: ' + txn : ''}<br/>💰 মোট: ${total}`;
+
+  window.open(waURL, '_blank');
+}
+</script>
+</body>
+</html>
